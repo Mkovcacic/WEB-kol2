@@ -1,0 +1,13 @@
+client 
+npm install
+ng serve
+npm run watch (kada subscribeamo)
+
+ng generate directive ime (direktiva u angularu)
+ng serve --proxy-config putanja do proxya (opcionalno ako se trazi)
+
+server 
+npm install
+
+van obojice
+ng generate service ime (stvaranje servisa)

@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Company name</th>
+      <th scope="col">Nr. of employees</th>
+      <th scope="col">Market cap.</th>
+      <th scope="col" class="text-center">Country</th>
+      <th scope="col" class="text-center">Remove</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for(company of companies; track company.id) {
+        <tr app-company-row 
+            [company]="company" 
+            (triggerDelete)="removeById($event)">
+        </tr>
+    }
+  </tbody>
+
+</table>
