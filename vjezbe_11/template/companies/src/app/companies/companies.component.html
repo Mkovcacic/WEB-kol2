@@ -1,0 +1,37 @@
+@if (showTable) {
+
+  <button class="btn btn-outline-success btn-lg mb-3" style="width: 100px;"
+      (click)="showTable = !showTable"
+    >
+    <i class="bi bi-plus d-flex justify-content-center"></i>
+  </button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Company name</th>
+        <th scope="col">Nr. of employees</th>
+        <th scope="col">Market cap.</th>
+        <th scope="col" class="text-center">Country</th>
+        <th scope="col" class="text-center">Modify</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for(company of companies; track company.id) {
+        <tr app-company-row 
+            [company]="company" 
+            (triggerDelete)="remove($event)"
+            (triggerEdit)="edit($event)">
+        </tr>
+      }
+    </tbody>
+  </table>
+
+} @else {
+  <app-form
+    [form]="form"
+    (triggerAdd)="addCompany($event)"
+    (triggerClose)="showTable = true"
+  ></app-form>
+}

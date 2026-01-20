@@ -1,0 +1,31 @@
+
+
+<a class="btn btn-outline-success btn-lg mb-3" style="width: 100px;"
+  [routerLink]="'/new'"
+  >
+  <i class="bi bi-plus d-flex justify-content-center"></i>
+</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Company name</th>
+      <th scope="col">Nr. of employees</th>
+      <th scope="col">Market cap.</th>
+      <th scope="col" class="text-center">Country</th>
+      <th scope="col" class="text-center">Modify</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    @for(company of companiesService.companies(); track company.id) {
+      <tr app-company-row 
+          [company]="company" 
+          (triggerDelete)="remove($event!)"
+          >
+      </tr>
+    }
+  </tbody>
+</table>
+

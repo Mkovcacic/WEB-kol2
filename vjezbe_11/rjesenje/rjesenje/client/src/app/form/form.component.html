@@ -1,0 +1,64 @@
+<h5 class="mb-3"> 
+    @if (for_edit | async) {
+        Edit
+    } @else {
+        New
+    }
+    company
+</h5>
+
+
+@if (form) {
+
+    <form [formGroup]="form!" class="w-50">
+    <div class="form-floating mb-3">
+        <input formControlName="name" type="text" 
+        class="form-control" id="companyName" 
+        placeholder="Company name">
+        <label for="companyName">Company name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input formControlName="marketCap" type="number" 
+        class="form-control" id="marketCap" 
+        placeholder="Market cap.">
+        <label for="marketCap">Market cap.</label>
+    </div>    
+
+    <div class="form-floating mb-3">
+        <input formControlName="employees" type="number" 
+        class="form-control" id="employees" 
+        placeholder="Nr. of employees">
+        <label for="employees">Nr. of employees</label>
+    </div> 
+
+    <div class="form-floating mb-3">
+        <input formControlName="country" type="text" 
+        class="form-control" id="country" 
+        placeholder="Country">
+        <label for="country">Country</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input formControlName="countryCode" type="text" 
+        class="form-control" id="countryCode" 
+        placeholder="Country code">
+        <label for="countryCode">Country code</label>
+    </div>
+    
+    <div>
+        <button 
+            (click)="close()"
+        class="btn btn-outline-secondary btn-lg me-1" 
+        style="width: 100px;">
+        <i class="bi bi-x d-flex justify-content-center"></i>
+        </button>
+
+        <button [disabled]="form.invalid" 
+        (click)="submit()" 
+        class="btn btn-outline-success btn-lg" 
+        style="width: 100px;">
+        <i class="bi bi-floppy d-flex justify-content-center"></i>
+        </button>
+    </div>
+    </form>
+}
