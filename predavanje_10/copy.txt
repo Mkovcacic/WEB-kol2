@@ -1,0 +1,32 @@
+const ms = 500;
+const threshold = 0.5;
+
+class UserDB {
+    static is_from_EU(id, s_callb, e_callb) {
+        setTimeout(() => {
+            let prob = Math.random();
+            if (prob >= threshold)
+                s_callb(true);
+            else e_callb("Something went wrong (EU)");
+        }, ms);
+    }
+
+    static is_legal_age(id, s_callb, e_callb) {
+        setTimeout(() => {
+            let prob = Math.random();
+            if (prob >= threshold)
+                s_callb(true);
+            else e_callb("Something went wrong (AGE)");
+        }, ms);
+    }
+
+    static get_username(id, s_callb, e_callb) {
+        setTimeout(() => {
+            let prob = Math.random();
+            if (prob >= threshold)
+                s_callb("jmaltar")
+            else e_callb("Something went wrong (USER)");            
+        }, ms);
+    }
+}
+
